@@ -139,6 +139,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    react_webpack_rails (0.0.3)
     representable (2.3.0)
       uber (~> 0.0.7)
     responders (2.1.0)
@@ -226,6 +227,7 @@ DEPENDENCIES
   pry-rails
   quiet_assets
   rails (= 4.2.4)
+  react_webpack_rails
   roar-rails
   rspec-rails
   sass-rails
