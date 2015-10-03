@@ -17,6 +17,7 @@ gem 'figaro'
 gem 'roar-rails'
 gem 'bullet'
 gem 'react_webpack_rails'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug'
