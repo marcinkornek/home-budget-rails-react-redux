@@ -4,8 +4,6 @@ import { Input, ButtonInput } from 'react-bootstrap'
 export default class BudgetItemAdd extends React.Component {
 
   render() {
-    console.log(this.props)
-
     return (
       <div className='item-add'>
         <form className='new-item-form' onSubmit={this.handleSubmitForm.bind(this)}>
