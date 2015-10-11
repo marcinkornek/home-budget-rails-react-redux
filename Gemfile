@@ -18,6 +18,7 @@ gem 'roar-rails'
 gem 'bullet'
 gem 'react_webpack_rails'
 gem 'devise'
+gem 'roar-rails'
 
 group :development, :test do
   gem 'byebug'
