@@ -1,16 +1,21 @@
 import React, { PropTypes } from 'react'
-import { Navbar, CollapsibleNav, Nav } from 'react-bootstrap'
+import { Panel } from 'react-bootstrap'
 
 export default class BudgetItem extends React.Component {
 
-
   render() {
-    console.log(this.props)
-
     return (
-      <div className='item'>
-        {this.props.item.name}
-      </div>
+      <Panel className='item'>
+        <div className='item-field'>
+          <div className='item-label'>name:</div>
+          <div className='item-value'>{this.props.item.name}</div>
+        </div>
+
+        <div className='item-field'>
+          <div className='item-label'>created at:</div>
+          <div className='item-value'>{this.props.item.created_at}</div>
+        </div>
+      </Panel>
     )
   }
 }
