@@ -3,7 +3,7 @@ APIRoot = 'http://localhost:3000'
 
 module.exports = {
   APIEndpoints: {
-    ITEMS: APIRoot + '/api/items',
+    USERS: APIRoot + '/api/users',
   },
 
   Permissions: {

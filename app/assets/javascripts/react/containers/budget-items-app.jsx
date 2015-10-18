@@ -23,7 +23,7 @@ export default class BudgetItemsApp extends React.Component {
       <BudgetItem
         item={item} currentUser={this.props.currentUser} key={i}
         onAddClick={(itemId) =>
-          dispatch(actions.deleteItem(itemId))
+          dispatch(actions.deleteItem(itemId, this.props.currentUser.id))
         } />
     )
 
@@ -31,7 +31,7 @@ export default class BudgetItemsApp extends React.Component {
       <BudgetItemAdd
         currentUser={this.props.currentUser}
         onAddClick={(item) =>
-          dispatch(actions.createItem(item))
+          dispatch(actions.createItem(item, this.props.currentUser.id))
         } />
 
     return (

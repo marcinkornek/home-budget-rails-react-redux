@@ -12,7 +12,7 @@ function status(response) {
 export function fetchItems(userId) {
   return dispatch => {
     dispatch(itemsRequest());
-    return fetch(cons.APIEndpoints.ITEMS, {
+    return fetch(cons.APIEndpoints.USERS + '/' + userId + '/items', {
       method: 'get',
       headers: {
         'Accept': 'application/json',
@@ -26,10 +26,10 @@ export function fetchItems(userId) {
   };
 }
 
-export function createItem(item) {
+export function createItem(item, userId) {
   return dispatch => {
     dispatch(itemCreateRequest());
-    return fetch(cons.APIEndpoints.ITEMS, {
+    return fetch(cons.APIEndpoints.USERS + '/' + userId + '/items', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -47,10 +47,10 @@ export function createItem(item) {
   };
 }
 
-export function deleteItem(itemId) {
+export function deleteItem(itemId, userId) {
   return dispatch => {
     dispatch(itemCreateRequest());
-    return fetch(cons.APIEndpoints.ITEMS + '/' + itemId, {
+    return fetch(cons.APIEndpoints.USERS + '/' + userId + '/items/' + itemId, {
       method: 'delete',
       headers: {
         'Accept': 'application/json',

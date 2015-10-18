@@ -2,11 +2,11 @@ class Api::ItemsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    render json: { items: Item.all, sum: sum }
+    render json: { items: current_user.items, sum: sum }
   end
 
   def create
-    item = Item.new(name: params[:name], user: current_user, price: params[:price])
+    item = current_user.items.new(name: params[:name], user: current_user, price: params[:price])
     if item.save
       render json: { item: item, sum: sum }
     else
@@ -22,10 +22,14 @@ class Api::ItemsController < ApplicationController
   private
 
   def item
-    @item ||= Item.find(params[:id])
+    @item ||= current_user.items.find(params[:id])
   end
 
   def sum
-    @sum ||= Item.sum(:price)
+    @sum ||= current_user.items.sum(:price)
+  end
+
+  def current_user
+    @current_user ||= User.find(params[:user_id])
   end
 end
