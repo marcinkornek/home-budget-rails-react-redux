@@ -36,7 +36,8 @@ export function createItem(item) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        'name': item.name
+        'name': item.name,
+        'price': item.price
       })
     })
     .then(status)

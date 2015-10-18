@@ -6,7 +6,7 @@ class Api::ItemsController < ApplicationController
   end
 
   def create
-    item = Item.new(name: params[:name], user: current_user, price: 1)
+    item = Item.new(name: params[:name], user: current_user, price: params[:price])
     if item.save
       render json: item
     else

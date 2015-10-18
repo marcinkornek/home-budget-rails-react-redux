@@ -7,7 +7,8 @@ export default class BudgetItemAdd extends React.Component {
     return (
       <div className='item-add'>
         <form className='new-item-form' onSubmit={this.handleSubmitForm.bind(this)}>
-          <Input type='text' name='item' placeholder='new item' ref='item' />
+          <Input type='text' name='name' placeholder='item name' ref='name' />
+          <Input type='number' name='price' placeholder='item price' ref='price' />
 
           <ButtonInput type='submit' value='Add' />
         </form>
@@ -18,7 +19,8 @@ export default class BudgetItemAdd extends React.Component {
   handleSubmitForm(e) {
     e.preventDefault()
     var newItem = {
-      name: this.refs.item.getValue()
+      name: this.refs.name.getValue(),
+      price: this.refs.price.getValue()
     }
     this.props.onAddClick(newItem);
   }

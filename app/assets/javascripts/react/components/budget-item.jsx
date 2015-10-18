@@ -12,6 +12,11 @@ export default class BudgetItem extends React.Component {
         </div>
 
         <div className='item-field'>
+          <div className='item-label'>price:</div>
+          <div className='item-value'>{this.props.item.price}</div>
+        </div>
+
+        <div className='item-field'>
           <div className='item-label'>created at:</div>
           <div className='item-value'>{this.props.item.created_at}</div>
         </div>
