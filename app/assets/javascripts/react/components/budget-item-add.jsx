@@ -18,7 +18,7 @@ export default class BudgetItemAdd extends React.Component {
   handleSubmitForm(e) {
     e.preventDefault()
     var newItem = {
-      brand: this.refs.item.getValue()
+      name: this.refs.item.getValue()
     }
     this.props.onAddClick(newItem);
   }

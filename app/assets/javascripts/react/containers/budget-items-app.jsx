@@ -22,7 +22,7 @@ export default class BudgetItemsApp extends React.Component {
       <BudgetItemAdd
         currentUser={this.props.currentUser}
         onAddClick={(item) =>
-          console.log(item)
+          dispatch(actions.createItem(item))
         } />
 
     return (

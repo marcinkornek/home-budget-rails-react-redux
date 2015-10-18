@@ -15,7 +15,7 @@ export function fetchItems(userId) {
     return fetch(cons.APIEndpoints.ITEMS, {
       method: 'get',
       headers: {
-        'Accept': 'application/vnd.blabla-clone-v1+json',
+        'Accept': 'application/json',
         'Content-Type': 'application/json'
       }
     })
@@ -23,6 +23,26 @@ export function fetchItems(userId) {
     .then(req => req.json())
     .then(json => dispatch(itemsSuccess(json)))
     .catch(errors => dispatch(itemsFailure(errors)))
+  };
+}
+
+export function createItem(item) {
+  return dispatch => {
+    dispatch(itemCreateRequest());
+    return fetch(cons.APIEndpoints.ITEMS, {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        'name': item.name
+      })
+    })
+    .then(status)
+    .then(req => req.json())
+    .then(json => dispatch(itemCreateSuccess(json)))
+    .catch(errors => dispatch(itemCreateFailure(errors)))
   };
 }
 
@@ -42,6 +62,27 @@ export function itemsSuccess(json) {
 export function itemsFailure(errors) {
   return {
     type: types.ITEMS_FAILURE,
+    errors: errors
+  }
+}
+
+export function itemCreateRequest() {
+  return {
+    type: types.ITEM_CREATE_REQUEST,
+  };
+}
+
+export function itemCreateSuccess(json) {
+  console.log('bbbb', json)
+  return {
+    type: types.ITEM_CREATE_SUCCESS,
+    item: json
+  }
+}
+
+export function itemCreateFailure(errors) {
+  return {
+    type: types.ITEM_CREATE_FAILURE,
     errors: errors
   }
 }
