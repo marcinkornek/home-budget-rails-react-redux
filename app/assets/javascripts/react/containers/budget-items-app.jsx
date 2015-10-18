@@ -15,7 +15,11 @@ export default class BudgetItemsApp extends React.Component {
     const { dispatch, items } = this.props;
 
     var budgetItems = items.map((item, i) =>
-      <BudgetItem item={item} currentUser={this.props.currentUser} key={i} />
+      <BudgetItem
+        item={item} currentUser={this.props.currentUser} key={i}
+        onAddClick={(itemId) =>
+          dispatch(actions.deleteItem(itemId))
+        } />
     )
 
     var budgetItemAdd =

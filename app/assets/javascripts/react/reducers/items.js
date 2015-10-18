@@ -25,6 +25,13 @@ export default function items(state = initialState, action) {
       isFetching: false,
       items: items
     });
+  case types.ITEM_DELETE_SUCCESS:
+    var items = _.cloneDeep(state.items)
+    items = _.reject(items, function(el) { return el.id === action.item.id; })
+    return objectAssign({}, state, {
+      isFetching: false,
+      items: items
+    });
   default:
     return state;
   }

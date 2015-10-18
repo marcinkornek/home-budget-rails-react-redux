@@ -13,4 +13,15 @@ class Api::ItemsController < ApplicationController
       render json: { errors: item.errors.full_messages }, status: :not_acceptable
     end
   end
+
+  def destroy
+    item.destroy
+    render json: item
+  end
+
+  private
+
+  def item
+    @item ||= Item.find(params[:id])
+  end
 end

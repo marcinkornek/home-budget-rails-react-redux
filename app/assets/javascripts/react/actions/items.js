@@ -47,6 +47,23 @@ export function createItem(item) {
   };
 }
 
+export function deleteItem(itemId) {
+  return dispatch => {
+    dispatch(itemCreateRequest());
+    return fetch(cons.APIEndpoints.ITEMS + '/' + itemId, {
+      method: 'delete',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(status)
+    .then(req => req.json())
+    .then(json => dispatch(itemDeleteSuccess(json)))
+    .catch(errors => dispatch(itemDeleteFailure(errors)))
+  };
+}
+
 export function itemsRequest() {
   return {
     type: types.ITEMS_REQUEST,
@@ -74,7 +91,6 @@ export function itemCreateRequest() {
 }
 
 export function itemCreateSuccess(json) {
-  console.log('bbbb', json)
   return {
     type: types.ITEM_CREATE_SUCCESS,
     item: json
@@ -84,6 +100,26 @@ export function itemCreateSuccess(json) {
 export function itemCreateFailure(errors) {
   return {
     type: types.ITEM_CREATE_FAILURE,
+    errors: errors
+  }
+}
+
+export function itemDeleteRequest() {
+  return {
+    type: types.ITEM_DELETE_REQUEST,
+  };
+}
+
+export function itemDeleteSuccess(json) {
+  return {
+    type: types.ITEM_DELETE_SUCCESS,
+    item: json
+  }
+}
+
+export function itemDeleteFailure(errors) {
+  return {
+    type: types.ITEM_DELETE_FAILURE,
     errors: errors
   }
 }
