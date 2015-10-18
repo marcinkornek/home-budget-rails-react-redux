@@ -3,6 +3,7 @@ import { connect }                     from 'react-redux';
 import { Navbar, CollapsibleNav, Nav } from 'react-bootstrap'
 import BudgetItem                      from '../components/budget-item'
 import BudgetItemAdd                   from '../components/budget-item-add'
+import BudgetItemSum                   from '../components/budget-item-sum'
 import * as actions                    from '../actions/items';
 
 export default class BudgetItemsApp extends React.Component {
@@ -12,7 +13,11 @@ export default class BudgetItemsApp extends React.Component {
   }
 
   render() {
-    const { dispatch, items } = this.props;
+    const { dispatch, items, sum } = this.props;
+
+    var budgetItemSum =
+      <BudgetItemSum
+        sum={this.props.sum} />
 
     var budgetItems = items.map((item, i) =>
       <BudgetItem
@@ -31,6 +36,7 @@ export default class BudgetItemsApp extends React.Component {
 
     return (
       <div className='items'>
+        {budgetItemSum}
         {budgetItemAdd}
         {budgetItems}
       </div>
@@ -41,6 +47,7 @@ export default class BudgetItemsApp extends React.Component {
 function select(state) {
   return {
     items: state.items.items,
+    sum: state.items.sum
   };
 }
 

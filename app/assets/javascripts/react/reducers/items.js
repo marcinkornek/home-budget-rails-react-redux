@@ -4,6 +4,7 @@ import _            from 'lodash'
 
 const initialState = {
   isFetching: false,
+  sum: null,
   items: []
 }
 
@@ -16,21 +17,24 @@ export default function items(state = initialState, action) {
   case types.ITEMS_SUCCESS:
     return objectAssign({}, state, {
       isFetching: false,
-      items: action.items
+      items: action.json.items,
+      sum: action.json.sum
     });
   case types.ITEM_CREATE_SUCCESS:
     var items = _.cloneDeep(state.items)
-    items.push(action.item)
+    items.push(action.json.item)
     return objectAssign({}, state, {
       isFetching: false,
-      items: items
+      items: items,
+      sum: action.json.sum
     });
   case types.ITEM_DELETE_SUCCESS:
     var items = _.cloneDeep(state.items)
-    items = _.reject(items, function(el) { return el.id === action.item.id; })
+    items = _.reject(items, function(el) { return el.id === action.json.item.id; })
     return objectAssign({}, state, {
       isFetching: false,
-      items: items
+      items: items,
+      sum: action.json.sum
     });
   default:
     return state;

@@ -73,7 +73,7 @@ export function itemsRequest() {
 export function itemsSuccess(json) {
   return {
     type: types.ITEMS_SUCCESS,
-    items: json
+    json: json
   }
 }
 
@@ -93,7 +93,7 @@ export function itemCreateRequest() {
 export function itemCreateSuccess(json) {
   return {
     type: types.ITEM_CREATE_SUCCESS,
-    item: json
+    json: json
   }
 }
 
@@ -113,7 +113,7 @@ export function itemDeleteRequest() {
 export function itemDeleteSuccess(json) {
   return {
     type: types.ITEM_DELETE_SUCCESS,
-    item: json
+    json: json
   }
 }
 
