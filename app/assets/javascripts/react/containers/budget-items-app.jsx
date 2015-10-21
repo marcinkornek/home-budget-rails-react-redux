@@ -9,7 +9,7 @@ import * as actions                    from '../actions/items';
 export default class BudgetItemsApp extends React.Component {
   componentDidMount() {
     const { dispatch } = this.props;
-    dispatch(actions.fetchItems());
+    dispatch(actions.addInitialItems(this.props.itemsJson));
   }
 
   render() {

@@ -9,7 +9,13 @@ function status(response) {
   throw new Error(response.statusText)
 }
 
-export function fetchItems() {
+export function addInitialItems(items) {
+  return dispatch => {
+    dispatch(itemsSuccess(items))
+  };
+}
+
+export function fetchMoreItems() {
   return dispatch => {
     dispatch(itemsRequest());
     return fetch(cons.APIEndpoints.ITEMS, {

@@ -14,11 +14,17 @@ export default class BudgetItems extends React.Component {
                   monitor={LogMonitor} />
       </DebugPanel>
 
+    var itemsJson = {
+      items: this.props.items,
+      sum: this.props.sum
+    }
+
     return (
       <div>
         <Provider store={store}>
           {() => <BudgetItemsApp
-            currentUser={this.props.currentUser} />}
+            currentUser={this.props.currentUser}
+            itemsJson={itemsJson} />}
         </Provider>
         {devTools}
       </div>
