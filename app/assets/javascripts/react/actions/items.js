@@ -9,10 +9,11 @@ function status(response) {
   throw new Error(response.statusText)
 }
 
-export function fetchItems(userId) {
+export function fetchItems() {
   return dispatch => {
     dispatch(itemsRequest());
-    return fetch(cons.APIEndpoints.USERS + '/' + userId + '/items', {
+    return fetch(cons.APIEndpoints.ITEMS, {
+      credentials: 'same-origin',
       method: 'get',
       headers: {
         'Accept': 'application/json',
@@ -26,10 +27,11 @@ export function fetchItems(userId) {
   };
 }
 
-export function createItem(item, userId) {
+export function createItem(item) {
   return dispatch => {
     dispatch(itemCreateRequest());
-    return fetch(cons.APIEndpoints.USERS + '/' + userId + '/items', {
+    return fetch(cons.APIEndpoints.ITEMS, {
+      credentials: 'same-origin',
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -47,10 +49,11 @@ export function createItem(item, userId) {
   };
 }
 
-export function deleteItem(itemId, userId) {
+export function deleteItem(itemId) {
   return dispatch => {
     dispatch(itemCreateRequest());
-    return fetch(cons.APIEndpoints.USERS + '/' + userId + '/items/' + itemId, {
+    return fetch(cons.APIEndpoints.ITEMS + '/' + itemId, {
+      credentials: 'same-origin',
       method: 'delete',
       headers: {
         'Accept': 'application/json',

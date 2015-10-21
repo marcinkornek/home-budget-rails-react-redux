@@ -9,7 +9,7 @@ import * as actions                    from '../actions/items';
 export default class BudgetItemsApp extends React.Component {
   componentDidMount() {
     const { dispatch } = this.props;
-    dispatch(actions.fetchItems(this.props.currentUser.id));
+    dispatch(actions.fetchItems());
   }
 
   render() {
@@ -23,7 +23,7 @@ export default class BudgetItemsApp extends React.Component {
       <BudgetItem
         item={item} currentUser={this.props.currentUser} key={i}
         onAddClick={(itemId) =>
-          dispatch(actions.deleteItem(itemId, this.props.currentUser.id))
+          dispatch(actions.deleteItem(itemId))
         } />
     )
 
@@ -31,7 +31,7 @@ export default class BudgetItemsApp extends React.Component {
       <BudgetItemAdd
         currentUser={this.props.currentUser}
         onAddClick={(item) =>
-          dispatch(actions.createItem(item, this.props.currentUser.id))
+          dispatch(actions.createItem(item))
         } />
 
     return (

@@ -28,8 +28,4 @@ class Api::ItemsController < ApplicationController
   def sum
     @sum ||= current_user.items.sum(:price)
   end
-
-  def current_user
-    @current_user ||= User.find(params[:user_id])
-  end
 end
