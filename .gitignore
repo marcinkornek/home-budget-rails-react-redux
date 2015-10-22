@@ -16,4 +16,3 @@
 /node_modules
 
 # Ignore output react file
-/app/assets/javascripts/react_bundle.js
