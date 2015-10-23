@@ -36371,8 +36371,7 @@
 	      var _this = this;
 
 	      var devTools;
-	      console.log('sss', (false));
-	      if (false) {
+	      if (true) {
 	        devTools = _react2['default'].createElement(
 	          _reduxDevtoolsLibReact.DebugPanel,
 	          { top: true, right: true, bottom: true },
@@ -38553,7 +38552,7 @@
 	'use strict';
 
 	var APIRoot;
-	if (false) {
+	if (true) {
 	  APIRoot = 'http://localhost:3000';
 	} else {
 	  APIRoot = 'https://home-budget-react.herokuapp.com';
@@ -38603,16 +38602,13 @@
 	var finalCreateStoreProd = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxThunk2['default']))(_redux.createStore);
 
 	function storage() {
-	  if (false) {
+	  if (true) {
 	    return finalCreateStoreDev(_reducersIndex2['default']);
 	  } else {
 	    return finalCreateStoreProd(_reducersIndex2['default']);
 	  }
 	}
 
-	// export default function storage() {
-	//   return finalCreateStoreDev(rootReducer);
-	// }
 	module.exports = exports['default'];
 
 /***/ },

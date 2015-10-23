@@ -20,8 +20,3 @@ export default function storage() {
     return finalCreateStoreProd(rootReducer);
   }
 }
-
-
-// export default function storage() {
-//   return finalCreateStoreDev(rootReducer);
-// }
