@@ -22,8 +22,17 @@ Start rails server:
 $ rails s
 ```
 Start npm:
+* normal server:
 ```
 $ npm start
+```
+* auto reloading server:
+```
+$ npm run start-dev
+```
+* auto hot-reloading server:
+```
+$ npm run start-hot-dev
 ```
 
 ### Heroku
