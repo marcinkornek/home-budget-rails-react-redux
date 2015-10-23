@@ -10,10 +10,18 @@ const finalCreateStoreDev = compose(
 )(createStore);
 
 const finalCreateStoreProd = compose(
-  applyMiddleware(thunkMiddleware),
-  createStore
-);
+ applyMiddleware(thunkMiddleware)
+)(createStore);
 
 export default function storage() {
-  return finalCreateStoreDev(rootReducer);
+  if (__DEVELOPMENT__ && __DEVTOOLS__) {
+    return finalCreateStoreDev(rootReducer);
+  } else {
+    return finalCreateStoreProd(rootReducer);
+  }
 }
+
+
+// export default function storage() {
+//   return finalCreateStoreDev(rootReducer);
+// }

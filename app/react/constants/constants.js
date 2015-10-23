@@ -1,5 +1,9 @@
 var APIRoot
-APIRoot = 'http://localhost:3000'
+if (__DEVELOPMENT__) {
+  APIRoot = 'http://localhost:3000'
+} else {
+  APIRoot = 'https://home-budget-react.herokuapp.com'
+}
 
 module.exports = {
   APIEndpoints: {

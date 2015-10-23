@@ -8,11 +8,15 @@ const store = storage();
 
 export default class BudgetItems extends React.Component {
   render() {
-    var devTools =
-      <DebugPanel top right bottom>
-        <DevTools store={store}
-                  monitor={LogMonitor} />
-      </DebugPanel>
+    var devTools
+    console.log('sss', __DEVELOPMENT__)
+    if (__DEVELOPMENT__ && __DEVTOOLS__) {
+      devTools =
+        <DebugPanel top right bottom>
+          <DevTools store={store}
+                    monitor={LogMonitor} />
+        </DebugPanel>
+    }
 
     var itemsJson = {
       items: this.props.items,
