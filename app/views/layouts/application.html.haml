@@ -7,7 +7,8 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    / = react_component('header')
+    - if Rails.env.development?
+      %script{src: 'http://localhost:8080/static/react_bundle.js'}
     = render 'shared/header'
     .container
       .row
