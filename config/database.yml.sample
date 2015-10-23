@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: home-budget_development
+
+test:
+  <<: *default
+  database: home-budget_test
+
+production:
+  <<: *default
+  database: home-budget_production
+  username: home-budget
+  password: <%= ENV['HOME-BUDGET_DATABASE_PASSWORD'] %>

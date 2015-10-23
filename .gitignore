@@ -11,6 +11,7 @@
 /log/*
 !/log/.keep
 /tmp
+/config/database.yml
 
 # Ignore node_modules
 /node_modules
