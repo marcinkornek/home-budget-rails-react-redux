@@ -35,9 +35,9 @@
   },
   "scripts": {
     "test": "karma start",
-    "start": "webpack -w --config webpack/dev.config.js",
+    "start": "webpack-dev-server --config webpack/dev.config.js",
     "start-dev": "webpack-dev-server --config webpack-dev-server.config.js",
-    "start-hot-dev": "webpack-dev-server --config webpack-hot-dev-server.config.js",
+    "start-hot-dev": "webpack-dev-server --hot --inline --config webpack/hot-dev.config.js",
     "build": "webpack -p --config webpack/production.config.js"
   },
   "license": "",

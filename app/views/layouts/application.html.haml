@@ -8,7 +8,7 @@
     = csrf_meta_tags
   %body
     - if Rails.env.development?
-      %script{src: 'http://localhost:8080/static/react_bundle.js'}
+      %script{src: 'http://localhost:8080/react_bundle.js'}
     = render 'shared/header'
     .container
       .row

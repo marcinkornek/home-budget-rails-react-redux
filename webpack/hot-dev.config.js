@@ -1,5 +1,5 @@
 module.exports = require('./../webpack.config')({
-  hot: false,
+  hot: true,
   devtool: 'eval',
   development: true,
   debug: true
